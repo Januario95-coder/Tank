@@ -1,0 +1,169 @@
+.create-tank-button {
+	margin-top: 40px;
+}
+
+.create-tank-button button {
+	border: none;
+	padding: 4px 10px;
+	background: #008ae6;
+	color: white;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+.create-tank {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 60px;
+}
+
+.form-create-tank {
+	position: fixed;
+	top: -100%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	width: 550px;
+	padding: 10px;
+	box-shadow: 0 15px 30px rgba(0,0,0,0.80);
+	transition: .5s;
+	background-image: linear-gradient(lightblue, lightblue, white, white);
+	visibility: hidden;
+}
+.form-create-tank.active {
+	visibility: visible;
+	top: 50%;
+}
+.close-form {
+	cursor: pointer;
+	margin-left: 490px;
+}
+.create-tank form input {
+	height: 45px;
+}
+.create-tank form textarea {
+	resize: none;
+}
+.create-tank form input,
+.create-tank form textarea,
+.select-user {
+	margin-bottom: 10px;
+	border: 2px solid #ccc; 
+	outline: none;
+	padding-left: 10px;
+	border-radius: 3px;
+	width: 100%;
+}
+.dates {
+	display: flex;
+	justify-content: space-between;
+	align-items: space-between;
+}
+input[type="date"] {
+	width: 60px;
+}
+.date {
+	font-size: 12px;
+	text-transform: capitalize;
+}
+.select-user {
+	height: 45px;
+}
+.btn-create-tanker {
+	width: 100%;
+	border: none;
+	background: #008ae6;
+	height: 41px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	color: white;
+	font-weight: bold;
+}
+.tankers-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+.tanker-detail {
+	background: #fafafa;
+	width: 290px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tanker-detail h3 {
+	font-weight: bold;
+	font-size: 25px;
+}
+.tanker-detail p {
+	font-size: 13px;
+}
+.tanker-description {
+	font-size: 20px;
+}
+.display-dates {
+	display: flex;
+	justify-content: space-between;
+	
+}
+.display-dates span {
+	font-size: 13px;
+}
+#modify-project {
+    font-size: 16px;
+    color: blue;
+}
+.fa-trash-alt {
+	color: #eb6931;
+	cursor: pointer;
+	padding-left: 6px;
+}
+.fa-trash-alt:hover {
+	transition: transform .2s;
+	transform: scale(1.2);
+}
+.tanker-pdf {
+	border-top: 2px solid #ccc;
+}
+.tanker-pdf span {
+	font-size: 25px;
+	cursor: pointer;
+}
+.tanker-pdf span:hover {
+	transition: transform .2s;
+	transform: scale(1.1);
+}
+.fa-file-pdf, .fa-clone {
+	color: red;
+	opacity: 0.5;
+}
+.first-pdf {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #ededeb;
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+}
+.delete-assessment, .tanker-pdf {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+.delete-assessment  {
+	margin-top: 20px;
+}
+.delete-assessment span {
+	color: blue;
+	cursor: pointer;
+}
+.delete-assessment span:hover {
+	transition: transform .2s;
+	transform: scale(1.1);
+}

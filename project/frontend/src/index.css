@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	/*
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;	
+	*/
+	background: #f5f5f5;
+}
+
+#root {
+	min-width: 900px;
+}
+
+.main {
+	display: flex;
+	justify-content: space-around;
+}
+
+.list-header {
+	list-style: none;
+	margin-top: 40px;
+}
+
+.list-header li {
+	display: inline-block;
+	padding-right: 30px;
+	padding: 2px;
+	width: 150px;
+	height: 33px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-right: 10px;
+	cursor: pointer;
+	background: #fff;
+}
+
+.list-header li:hover, .list-header li:active {
+	background: #ccc;
+}
+
+.list-header li a {
+	text-decoration: none;
+	color: black;
+	
+	opacity: 0.5;
+}
+
+
+.sidenav {
+	list-style: none;
+	height: 100%; 
+	width: 250px; 
+	position: fixed;
+	z-index: 1;
+	top: 0; 
+	left: 0;
+	background-color: #00cc99; 
+	overflow-x: hidden; 
+	padding-top: 60px; 
+	transition: 0.5s; 
+}
+
+
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #cdc;
+	display: block;
+	transition: 0.3s;
+}
+
+
+.sidenav a:hover {
+	color: black;
+	background: #f5f5f5;
+}
+
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+
+#main {
+	transition: margin-left .5s;
+	padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+
+@media screen and (max-width: 750px) {
+	.main { justify-content: flex-end; }
+	.list-header { margin-left: 1px; }
+	#mySidenav { 
+		width: 150px; 
+		margin-left: 0px;
+	}
+	#mySidenav a { 
+		font-size: 12px;
+	}
+	.menu-session {
+		width: 100%;
+		margin-left: 0px;
+	}
+	
+}
+
+.open-nav {
+	background: #00cc99;
+	width: 100px;
+}
+
+.menu-session {
+	width: 75%;
+	padding: 30px;
+	margin-top: 30px;
+	margin-left: 30%;
+	margin-right: 30px;
+}
+
+
+.plate-types {
+    list-style: none;
+    padding: 0px;
+}
+
+.plate-types li {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/*
+.plate-types li:hover {
+    border-bottom: 3px solid #00cc99;
+}
+*/
+
+.plate-types li a {
+    text-decoration: none;
+    color: black;
+    min-width: 150px;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.plate-types li a:hover {
+    border-bottom: 3px solid #00cc99;
+}
+
+.select-fields-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.select-fields-one {
+    display: block;
+}
+
+.select-fields-div label {
+    font-size: 11px;
+    margin-left: 6px;
+}
+
+.select-fields {
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.input {
+    padding-left: 8px;
+}
+
+.data-section {
+    background: #ebebeb;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.data-title {
+    border-bottom: 1px solid #ccc;
+}
+
+.toggle-sign {
+    color: #555;
+}
+
+.btn-submit {
+    border: 1px solid #ccc;
+    width: 150px;
+    margin-top: 15px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: #00cc99;
+}
+
+.btn-submit:hover,
+.data-module:hover {
+    transition: background .3s;
+    background: #40deb4;
+    outline: none;
+}
+
+.data-module {
+    display: flex;
+    justify-content: space-between;
+    background: #00cc99;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 985px) {
+    /*
+        Risk Assessment
+    */
+    .health-rating,
+    .health-factor {
+        margin-left: 35px;
+    }
+
+    .economic-rating,
+    .economic-factor {
+        margin-left: 89px;
+    }
+
+    .probability-rating,
+    .probability-factor {
+        margin-left: 246px;
+    }
+
+    .environmental-rating,
+    .environmental-factor {
+        margin-left: 58px;
+    }
+
+    .overall-rating,
+    .overall-factor {
+        margin-left: 171px;
+    }
+
+    .risk-rating {
+        margin-left: 288px;
+    }
+    
+    /*
+        Remaining Life And Inspection Interval Assessment
+    */
+    .corrosion-rate {
+        margin-left: 263px;
+    }
+    .acceleration-factor-pitting {
+        margin-left: 160px;
+    }
+    .adjusted-corrosion-rate {
+        margin-left: 197px;
+    }
+    .remaining-life {
+        margin-left: 264px;
+    }
+    .confidence-factor {
+        margin-left: 239px;
+    }
+    .confidence-factor-adjustement {
+        margin-left: 147px;
+    }
+    .ajusted-confidence-factor {
+        margin-left: 182px;
+    }
+    .before-next-inspection {
+        margin-left: 87px;
+    }
+    .next-inspection {
+        margin-left: 258px;
+    }
+}
+

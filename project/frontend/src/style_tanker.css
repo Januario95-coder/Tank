@@ -1,0 +1,69 @@
+.image-session {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 60px;
+}
+.tanker-header {
+	display: flex;
+}
+.tanker-header span {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+.tanker-title {
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 0px;
+}
+.fa-servicestack {
+	font-size: 63px;
+	margin-right: 20px;
+}
+.tanker-summary {
+	margin-top: 40px;
+}
+.tanker-title-summary {
+	font-size: 12px;
+	margin-top: 0px;
+}
+.select-tanker {
+	width: 220px;
+	height: 34px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	border-radius: 4px;
+}
+.tanker-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.tanker-table tbody tr {
+	border-bottom: 1px solid #ccc;
+}
+.tanker-table-header {
+	background: black;
+	min-height: 30px;
+	height: 30px;
+}
+.tanker-table-header th {
+	color: #ccc;
+}
+.tanker-table td, .tanker-table th {
+	
+	font-size: 11px;
+	text-align: center;
+}
+.cell-fixed-width {
+	max-width: 230px;
+	min-width: 230px;
+}
+.cell-fixe-date {
+	min-width: 120px;
+	max-width: 120px;
+}
+.rest-cell {
+	min-width: 120px;
+}
