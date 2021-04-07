@@ -1,30 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 
-
-class FetchSelectData {
-    constructor() {
-        this.data = [];
-    }
-    
-
-    fetching(url) {
-        let data = [];
-        fetch(url)
-            .then(res => res.json())
-            .then(result => {
-                //console.log(result);
-                data = result;
-                //console.log(this.data);
-                
-            })
-            .catch(err => console.log(err));
-            
-        //console.log(this.data);
-        return data;
-    }
-}
-
 const BottomPlates = ({ id, loading }) => {
     const [impressCathodProtection, setImpressCathodProtection] = useState([]);
     const [impressCathodProtectionValue, setImpressCathodProtectionValue] = useState(undefined);
@@ -33,81 +9,109 @@ const BottomPlates = ({ id, loading }) => {
     const [sacriCathProteValue, setSacriCathProteValue] = useState('');
     
     const [bottomPlatesInternalCoating, setBottomPlatesInternalCoating] = useState([]);
-    const [bottomPlatesInternalCoatingValue, setBottomPlatesInternalCoatingValue] = useState([]);
+    const [bottomPlatesInternalCoatingValue, setBottomPlatesInternalCoatingValue] = useState('');
     
     const [bottomPlatesExternalCoating, setBottomPlatesExternalCoating] = useState([]);
-    const [bottomPlatesExternalCoatingValue, setBottomPlatesExternalCoatingValue] = useState([]);
+    const [bottomPlatesExternalCoatingValue, setBottomPlatesExternalCoatingValue] = useState('');
     
     const [storageCondition, setStorageCondition] = useState([]);
-    const [storageConditionValue, setStorageConditionValue] = useState([]);
+    const [storageConditionValue, setStorageConditionValue] = useState('');
     
     const [typeOfBotton, setTypeOfBotton] = useState([]);
-    const [typeOfBottonValue, setTypeOfBottonValue] = useState([]);
+    const [typeOfBottonValue, setTypeOfBottonValue] = useState('');
     
     const [heatingCoilsInTank, setHeatingCoilsInTank] = useState([]);
-    const [heatingCoilsInTankValue, setHeatingCoilsInTankValue] = useState([]);
+    const [heatingCoilsInTankValue, setHeatingCoilsInTankValue] = useState('');
     
     const [productCorrosivity, setProductCorrosivity] = useState([]);
-    const [productCorrosivityValue, setProductCorrosivityValue] = useState([]);
+    const [productCorrosivityValue, setProductCorrosivityValue] = useState('');
     
     const [foundationType, setFoundationType] = useState([]);
-    const [foundationTypeValue, setFoundationTypeValue] = useState([]);
+    const [foundationTypeValue, setFoundationTypeValue] = useState('');
     
     const [heightOfFoundation, setHeightOfFoundation] = useState([]);
-    const [heightOfFoundationValue, setHeightOfFoundationValue] = useState([]);
+    const [heightOfFoundationValue, setHeightOfFoundationValue] = useState('');
     
     const [effectiveDrainage, setEffectiveDrainage] = useState([]);
-    const [effectiveDrainageValue, setEffectiveDrainageValue] = useState([]);
+    const [effectiveDrainageValue, setEffectiveDrainageValue] = useState('');
     
     const [scoreFive, setScoreFive] = useState([]);
     
     const [timeToRepair, setTimeToRepair] = useState([]);
-    const [timeToRepairValue, setTimeToRepairValue] = useState([]);
+    const [timeToRepairValue, setTimeToRepairValue] = useState('');
     
     const [costOfRepair, setCostOfRepair] = useState([]);
-    const [costOfRepairValue, setCostOfRepairValue] = useState([]);
+    const [costOfRepairValue, setCostOfRepairValue] = useState('');
     
     const [drainageMagnitude, setDrainageMagnitude] = useState([]);
-    const [drainageMagnitudeValue, setDrainageMagnitudeValue] = useState([]);
-    
+    const [drainageMagnitudeValue, setDrainageMagnitudeValue] = useState('');
     
     const [likelihoodOfInjury, setLikelihoodOfInjury] = useState([]);
+    const [likelihoodOfInjuryValue, setLikelihoodOfInjuryValue] = useState('');
+    
     const [productFlamability, setProductFlamability] = useState([]);
+    const [productFlamabilityValue, setProductFlamabilityValue] = useState([]);
+    
     const [productToxicity, setProductToxicity] = useState([]);
+    const [productToxicityValue, setProductToxicityValue] = useState([]);
+    
     const [locationOfTank, setLocationOfTank] = useState([]);
+    const [locationOfTankValue, setLocationOfTankValue] = useState([]);
+    
     const [environHazard, setEnvironHazard] = useState([]);
+    const [environHazardValue, setEnvironHazardValue] = useState([]);
+    
     const [vapourEmission, setVapourEmission] = useState([]);
+    const [vapourEmissionValue, setVapourEmissionValue] = useState([]);
     
-    const [lastInspection, setLastInspection] = useState('');
-    const [minThicknessMeasuredPrevInsp, setMinThicknessMeasuredPrevInsp] = useState([]);
-    const [minThicknessMeasuredPresentInsp, setMinThicknessMeasuredPresentInsp] = useState('');
-    const [periodOfServiceBetweenPrevAndPresentInspe, setPeriodOfServiceBetweenPrevAndPresentInspe] = useState('');
-    const [minAllowBottomPlaceThickness, setMinAllowBottomPlaceThickness] = useState('');
-    const [ndtMethodUsed, setNdtMethodUsed] = useState([]);
-    const [freqOfInternalInsp, setFreqOfInternalInsp] = useState([]);
-    const [typeOfInternecting, setTypeOfInternecting] = useState([]);
+    const [lastInspectionValue, setLastInspectionValue] = useState('');
+    const [minThicknessMeasuredPrevInspValue, setMinThicknessMeasuredPrevInspValue] = useState([]);
+    const [periodOfServiceBetweenPrevAndPresentInspeValue, setPeriodOfServiceBetweenPrevAndPresentInspeValue] = useState('');
+    const [minThicknessMeasuredPresentInspValue, setMinThicknessMeasuredPresentInspValue] = useState('');
+    const [minAllowBottomPlaceThicknessValue, setMinAllowBottomPlaceThicknessValue] = useState('');
     
-    const [probabilityFactor, setProbabilityFactor] = useState('');
-    const [probabilityRating, setProbabilityRating] = useState('');
-    const [economicAspectsConsequenceFactor, setEconomicAspectsConsequenceFactor] = useState('');
-    const [economicAspectsConseqRating, setEconomicAspectsConseqRating] = useState('');
-    const [healthSafetyAspectsconseqFactor, setHealthSafetyAspectsconseqFactor] = useState('');
-    const [healthSafetyAspectsConseqRating, setHealthSafetyAspectsConseqRating] = useState('');
-    const [environAspectsConsequenceFactor, setEnvironAspectsConsequenceFactor] = useState('');
-    const [environAspectsConsequenceRating, setEnvironAspectsConsequenceRating] = useState('');
-    const [overallConsequenceFactor, setOverallConsequenceFactor] = useState('');
-    const [overallConsequenceRating, setOverallConsequenceRating] = useState('');
-    const [riskRating, setRiskRating] = useState('');
-    
-    const [corrosionRate, setCorrosionRate] = useState('');
     const [accelerationFactorForPitting, setAccelerationFactorForPitting] = useState('');
-    const [adjustedCorrosionRate, setAdjustedCorrosionRate] = useState('');
-    const [remainingLife, setRemainingLife] = useState('');
-    const [confidenceFactor, setConfidenceFactor] = useState('');
-    const [confidenceFactorAdjustement, setConfidenceFactorAdjustement] = useState('');
-    const [ajustedConfidenceFactor, setAjustedConfidenceFactor] = useState('');
-    const [intervalBeforeNextRequiredInspection, setIntervalBeforeNextRequiredInspection] = useState('');
-    const [nextInspection, setNextInspection] = useState('');
+    const [accelerationFactorForPittingValue, setAccelerationFactorForPittingValue] = useState('');
+    
+    const [ndtMethodUsed, setNdtMethodUsed] = useState([]);
+    const [ndtMethodUsedValue, setNdtMethodUsedValue] = useState([]);
+    
+    const [freqOfInternalInsp, setFreqOfInternalInsp] = useState([]);
+    const [freqOfInternalInspValue, setFreqOfInternalInspValue] = useState([]);
+    
+    const [typeOfInternecting, setTypeOfInternecting] = useState([]);
+    const [typeOfInternectingValue, setTypeOfInternectingValue] = useState([]);
+    
+    
+    const randomValue = () => {
+        let n = Math.random() * (1 + 2);
+        return n.toFixed(3);
+    }
+    
+    
+    // RESULTS
+    const [probabilityFactor, setProbabilityFactor] = useState(randomValue());
+    const [probabilityRating, setProbabilityRating] = useState(randomValue());
+    const [economicAspectsConsequenceFactor, setEconomicAspectsConsequenceFactor] = useState('3');
+    const [economicAspectsConseqRating, setEconomicAspectsConseqRating] = useState(randomValue());
+    const [healthSafetyAspectsconseqFactor, setHealthSafetyAspectsconseqFactor] = useState(randomValue());
+    const [healthSafetyAspectsConseqRating, setHealthSafetyAspectsConseqRating] = useState(randomValue());
+    const [environAspectsConsequenceFactor, setEnvironAspectsConsequenceFactor] = useState(randomValue());
+    const [environAspectsConsequenceRating, setEnvironAspectsConsequenceRating] = useState(randomValue());
+    const [overallConsequenceFactor, setOverallConsequenceFactor] = useState(randomValue());
+    const [overallConsequenceRating, setOverallConsequenceRating] = useState(randomValue());
+    const [riskRating, setRiskRating] = useState('1');
+    
+    
+    const [corrosionRate, setCorrosionRate] = useState('0');
+    const [accelerationFactorForPittingResult, setAccelerationFactorForPittingResult] = useState(randomValue());
+    const [adjustedCorrosionRate, setAdjustedCorrosionRate] = useState(randomValue());
+    const [remainingLife, setRemainingLife] = useState(randomValue());
+    const [confidenceFactor, setConfidenceFactor] = useState(randomValue());
+    const [confidenceFactorAdjustement, setConfidenceFactorAdjustement] = useState(randomValue());
+    const [ajustedConfidenceFactor, setAjustedConfidenceFactor] = useState(randomValue());
+    const [intervalBeforeNextRequiredInspection, setIntervalBeforeNextRequiredInspection] = useState(randomValue());
+    const [nextInspection, setNextInspection] = useState();
     
     const [isLoaded, setIsLoaded] = useState(loading);
     const [toggleProbaFactorData, setToggleProbaFactorData] = useState(false);
@@ -115,7 +119,6 @@ const BottomPlates = ({ id, loading }) => {
     const [toggleInspeData, setToggleInspeData] = useState(false);
     const [toggleResults, setToggleResults] = useState(false);
     const [toggleRiskAssess, setToggleRiskAssess] = useState(false);
-    const fetcher = new FetchSelectData();
     
     const fetchProject = () => {
         fetch(`http://127.0.0.1:8000/api/v1/projects/${id}/`)
@@ -155,13 +158,58 @@ const BottomPlates = ({ id, loading }) => {
                     data.default_values.probability_factor_data.effectiveness_of_drainages
                 );
                 setTimeToRepairValue(
-                    data.default_values.probability_factor_data.time_to_repair
+                    data.default_values.consequence_factor_data.time_to_repair
                 );
                 setCostOfRepairValue(
-                    data.default_values.probability_factor_data.cost_of_repair
+                    data.default_values.consequence_factor_data.cost_of_repair
                 );
                 setDrainageMagnitudeValue(
-                    data.default_values.probability_factor_data.probable_magnitude_of_product_loss
+                    data.default_values.consequence_factor_data.probable_magnitude_of_product_loss
+                );
+                setLikelihoodOfInjuryValue(
+                    data.default_values.consequence_factor_data.likelihood_of_injury_to_personnel
+                );
+                setProductFlamabilityValue(
+                    data.default_values.consequence_factor_data.product_flammability_as_per_MCSP
+                );
+                setProductToxicityValue(
+                    data.default_values.consequence_factor_data.product_toxicity
+                );
+                setLocationOfTankValue(
+                    data.default_values.consequence_factor_data.location_of_tank_farm
+                );
+                setEnvironHazardValue(
+                    data.default_values.consequence_factor_data.environmetal_hazard_to_soil_and_water_as_the_potential_to_cause
+                );
+                setVapourEmissionValue(
+                    data.default_values.consequence_factor_data.vapour_emission
+                );
+                setLastInspectionValue(
+                    data.default_values.inspection_data.last_inspection
+                );
+                setMinThicknessMeasuredPrevInspValue(
+                    data.default_values.inspection_data.minimum_thickness_measured_during_previous_inspection
+                );
+                setPeriodOfServiceBetweenPrevAndPresentInspeValue(
+                    data.default_values.inspection_data.minimum_thickness_measured_during_present_inspection
+                );
+                setMinThicknessMeasuredPresentInspValue(
+                    data.default_values.inspection_data.minimum_thickness_measured_during_present_inspection
+                );
+                setMinAllowBottomPlaceThicknessValue(
+                    data.default_values.inspection_data.minimum_allowable_bottom_place_thickness
+                );
+                setAccelerationFactorForPittingValue(
+                    data.default_values.inspection_data.acceleration_factor_for_pitting
+                );
+                setNdtMethodUsedValue(
+                    data.default_values.inspection_data.NDT_method_used_for_thickness_measurements
+                );
+                setFreqOfInternalInspValue(
+                    data.default_values.inspection_data.frequency_of_internal_inspections_performed_during_service_life
+                );
+                setTypeOfInternectingValue(
+                    data.default_values.inspection_data.type_of_interconnecting_bottom_plate_welds_outside_of_annular_section
                 );
             })
             .catch(err => console.log(err));
@@ -335,7 +383,7 @@ const BottomPlates = ({ id, loading }) => {
     }
     
     const fetchproductFlamability = () => {
-        fetch("http://127.0.0.1:8000/api/v1/selectfields/likelihood-of-injury/")
+        fetch("http://127.0.0.1:8000/api/v1/selectfields/product-flamability/")
             .then(res => res.json())
             .then(data => {
                 setProductFlamability(data);
@@ -346,7 +394,7 @@ const BottomPlates = ({ id, loading }) => {
     }
     
     const fetchproductToxicity = () => {
-        fetch("http://127.0.0.1:8000/api/v1/selectfields/likelihood-of-injury/")
+        fetch("http://127.0.0.1:8000/api/v1/selectfields/product-toxicity/")
             .then(res => res.json())
             .then(data => {
                 setProductToxicity(data);
@@ -357,7 +405,7 @@ const BottomPlates = ({ id, loading }) => {
     }
     
     const fetchlocationOfTank = () => {
-        fetch("http://127.0.0.1:8000/api/v1/selectfields/likelihood-of-injury/")
+        fetch("http://127.0.0.1:8000/api/v1/selectfields/location-of-tank/")
             .then(res => res.json())
             .then(data => {
                 setLocationOfTank(data);
@@ -383,6 +431,17 @@ const BottomPlates = ({ id, loading }) => {
             .then(res => res.json())
             .then(data => {
                 setVapourEmission(data);
+                //console.log(vapourEmission);
+                setIsLoaded(true);
+            })
+            .catch(err => console.log(err));
+    }
+    
+    const fetchaccelerationFactorForPitting = () => {
+        fetch("http://127.0.0.1:8000/api/v1/selectfields/accelaration-factor/")
+            .then(res => res.json())
+            .then(data => {
+                setAccelerationFactorForPitting(data);
                 //console.log(vapourEmission);
                 setIsLoaded(true);
             })
@@ -448,44 +507,90 @@ const BottomPlates = ({ id, loading }) => {
         fetchlocationOfTank();
         fetchenvironHazard();
         fetchvapourEmission();
+        fetchaccelerationFactorForPitting();
         fetchndtMethodUsed();
         fetchFreqOfInternalInsp();
         fetchTypeOfInternecting();
     }, []);
     
     
+    const handleResults = () => {
+        setProbabilityFactor(randomValue());
+        setProbabilityRating(randomValue());
+        setEconomicAspectsConsequenceFactor(randomValue());
+        setEconomicAspectsConseqRating(randomValue());
+        setHealthSafetyAspectsconseqFactor(randomValue());
+        setHealthSafetyAspectsConseqRating(randomValue());
+        setEnvironAspectsConsequenceFactor(randomValue());
+        setEnvironAspectsConsequenceRating(randomValue());
+        setOverallConsequenceFactor(randomValue());
+        setOverallConsequenceRating(randomValue());
+        
+        setCorrosionRate(randomValue());
+        setAccelerationFactorForPittingResult(randomValue());
+        setAdjustedCorrosionRate(randomValue());
+        setRemainingLife(randomValue());
+        setConfidenceFactor(randomValue());
+        setConfidenceFactorAdjustement(randomValue());
+        setAjustedConfidenceFactor(randomValue());
+        setIntervalBeforeNextRequiredInspection(randomValue());
+        setNextInspection(randomValue());
+    }
+    
     const handleSubmit = (e) => {
         e.preventDefault();
+        
         console.log('Submitted');
+        let dataToSubmit = {
+            id: id,
+            impressCathodProtectionValue: impressCathodProtectionValue,
+            sacriCathProteValue: sacriCathProteValue,
+            bottomPlatesInternalCoatingValue: bottomPlatesInternalCoatingValue,
+            bottomPlatesExternalCoatingValue: bottomPlatesExternalCoatingValue,
+            storageConditionValue: storageConditionValue,
+            typeOfBottonValue: typeOfBottonValue,
+            heatingCoilsInTankValue: heatingCoilsInTankValue,
+            productCorrosivityValue: productCorrosivityValue,
+            foundationTypeValue: foundationTypeValue,
+            heightOfFoundationValue: heightOfFoundationValue,
+            effectiveDrainageValue: effectiveDrainageValue,
+            timeToRepairValue: timeToRepairValue,
+            costOfRepairValue: costOfRepairValue,
+            drainageMagnitudeValue: drainageMagnitudeValue,
+            likelihoodOfInjuryValue: likelihoodOfInjuryValue,
+            productFlamabilityValue: productFlamabilityValue,
+            productToxicityValue: productToxicityValue,
+            locationOfTankValue: locationOfTankValue,
+            environHazardValue: environHazardValue,
+            vapourEmissionValue: vapourEmissionValue,
+            lastInspectionValue: lastInspectionValue,
+            minThicknessMeasuredPrevInspValue: minThicknessMeasuredPrevInspValue,
+            periodOfServiceBetweenPrevAndPresentInspeValue: periodOfServiceBetweenPrevAndPresentInspeValue,
+            minThicknessMeasuredPresentInspValue: minThicknessMeasuredPresentInspValue,
+            minAllowBottomPlaceThicknessValue: minAllowBottomPlaceThicknessValue,
+            accelerationFactorForPittingValue: accelerationFactorForPittingValue,
+            ndtMethodUsedValue: ndtMethodUsedValue,
+            freqOfInternalInspValue: freqOfInternalInspValue,
+            typeOfInternectingValue: typeOfInternectingValue
+        };
+        console.log(dataToSubmit);
         fetch('http://127.0.0.1:8000/api/v1/update-project-details/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             credentials: 'include',
-            body: JSON.stringify({
-                id: id,
-                impressCathodProtectionValue: impressCathodProtectionValue,
-                sacriCathProteValue: sacriCathProteValue,
-                bottomPlatesInternalCoatingValue: bottomPlatesInternalCoatingValue,
-                bottomPlatesExternalCoatingValue: bottomPlatesExternalCoatingValue,
-                storageConditionValue: storageConditionValue,
-                typeOfBottonValue: typeOfBottonValue,
-                heatingCoilsInTankValue: heatingCoilsInTankValue,
-                productCorrosivityValue: productCorrosivityValue,
-                foundationTypeValue: foundationTypeValue,
-                heightOfFoundationValue: heightOfFoundationValue,
-                effectiveDrainageValue: effectiveDrainageValue,
-                timeToRepairValue: timeToRepairValue,
-                costOfRepairValue: costOfRepairValue,
-                drainageMagnitudeValue: drainageMagnitudeValue
-            })
+            body: JSON.stringify(dataToSubmit)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
             })
             .catch(err => console.log(err));
+            
+        setTimeout(() => {
+            handleResults();    
+        }, 500);
     }
     
     const impressCathodProtectionHandler = (e) => {
@@ -558,8 +663,80 @@ const BottomPlates = ({ id, loading }) => {
         setDrainageMagnitudeValue(e.target.value);
     }
     
-
+    const likelihoodOfInjuryValueHandler = (e) => {
+        console.log(e.target.value);
+        setLikelihoodOfInjuryValue(e.target.value);
+    }
     
+    const productFlamabilityValueHandler = (e) => {
+        console.log(e.target.value);
+        setProductFlamabilityValue(e.target.value);
+    } 
+    
+    const productToxicityValueHandler = (e) => {
+        console.log(e.target.value);
+        setProductToxicityValue(e.target.value);
+    }
+
+    const locationOfTankValueHandler = (e) => {
+        console.log(e.target.value);
+        setLocationOfTankValue(e.target.value);
+    }
+    
+    const environHazardValueHandler = (e) => {
+        console.log(e.target.value);
+        setEnvironHazardValue(e.target.value);
+    }
+    
+    const vapourEmissionValueHandler = (e) => {
+        console.log(e.target.value);
+        setVapourEmissionValue(e.target.value);
+    }
+    
+    const lastInspectionValueHandler = (e) => {
+        console.log(e.target.value);
+        setLastInspectionValue(e.target.value);
+    }
+    
+    const minThicknessMeasuredPrevInspValueHandler = (e) => {
+        console.log(e.target.value);
+        setMinThicknessMeasuredPrevInspValue(e.target.value);
+    }
+    
+    const periodOfServiceBetweenPrevAndPresentInspeValueHandler = (e) => {
+        console.log(e.target.value);
+        setPeriodOfServiceBetweenPrevAndPresentInspeValue(e.target.value);
+    }
+    
+    const minThicknessMeasuredPresentInspValueHandler = (e) => {
+        console.log(e.target.value);
+        setMinThicknessMeasuredPresentInspValue(e.target.value);
+    }
+    
+    const minAllowBottomPlaceThicknessValueHandler = (e) => {
+        console.log(e.target.value);
+        setMinAllowBottomPlaceThicknessValue(e.target.value);
+    }
+    
+    const accelerationFactorForPittingValueHandler = (e) => {
+        console.log(e.target.value);
+        setAccelerationFactorForPittingValue(e.target.value);
+    }
+    
+    const ndtMethodUsedValueHandler = (e) => {
+        console.log(e.target.value);
+        setNdtMethodUsedValue(e.target.value);
+    }
+    
+    const freqOfInternalInspValueHandler = (e) => {
+        console.log(e.target.value);
+        setFreqOfInternalInspValue(e.target.value);
+    }
+    
+    const typeOfInternectingValueHandler = (e) => {
+        console.log(e.target.value);
+        setTypeOfInternectingValue(e.target.value);
+    }
 
     return (
         <div>
@@ -716,19 +893,27 @@ const BottomPlates = ({ id, loading }) => {
                                         <div className="select-fields-div">
                                             <SelectField
                                                 fields={likelihoodOfInjury}
+                                                value={likelihoodOfInjuryValue}
                                                 labelValue="Likelihood Of Injury to Personnel"
+                                                valueHandler={likelihoodOfInjuryValueHandler}
                                             />
                                             <SelectField
                                                 fields={productFlamability}
+                                                value={productFlamabilityValue}
                                                 labelValue="Product Flamability as per MCSP"
+                                                valueHandler={productFlamabilityValueHandler}
                                             />
                                             <SelectField
                                                 fields={productToxicity}
+                                                value={productToxicityValue}
                                                 labelValue="Product Toxicity"
+                                                valueHandler={productToxicityValueHandler}
                                             />
                                             <SelectField
                                                 fields={locationOfTank}
+                                                value={locationOfTankValue}
                                                 labelValue="Location Of Tank Farm"
+                                                valueHandler={locationOfTankValueHandler}
                                             />
                                         </div>
                                         
@@ -737,11 +922,15 @@ const BottomPlates = ({ id, loading }) => {
                                         <div className="select-fields-div">
                                             <SelectField
                                                 fields={environHazard}
+                                                value={environHazardValue}
                                                 labelValue="Environmetal Hazard to Soil and Water as the Potential to Cause"
+                                                valueHandler={environHazardValueHandler}
                                             />
                                             <SelectField
                                                 fields={vapourEmission}
+                                                value={vapourEmissionValue}
                                                 labelValue="Vapour Emission"
+                                                valueHandler={vapourEmissionValueHandler}
                                             />
                                         </div>
                                     </div>
@@ -773,9 +962,8 @@ const BottomPlates = ({ id, loading }) => {
                                                     type="date"
                                                     id="last_inspection"
                                                     className="select-fields input"
-                                                    name="Installation_of_PRD"
-                                                    value={lastInspection}
-                                                    onChange={(e) => setLastInspection(e.target.value)}
+                                                    value={lastInspectionValue}
+                                                    onChange={lastInspectionValueHandler}
                                                 />
                                             </div>
                                             <div className="select-fields-one">
@@ -784,9 +972,8 @@ const BottomPlates = ({ id, loading }) => {
                                                 <input
                                                     type="text"
                                                     className="select-fields input"
-                                                    name="Installation_of_PRD"
-                                                    value={minThicknessMeasuredPrevInsp}
-                                                    onChange={(e) => setMinThicknessMeasuredPrevInsp(e.target.value)}
+                                                    value={minThicknessMeasuredPrevInspValue}
+                                                    onChange={minThicknessMeasuredPrevInspValueHandler}
                                                 />
                                             </div>
                                             <div className="select-fields-one">
@@ -795,9 +982,8 @@ const BottomPlates = ({ id, loading }) => {
                                                 <input
                                                     type="text"
                                                     className="select-fields input"
-                                                    name="Installation_of_PRD"
-                                                    value={periodOfServiceBetweenPrevAndPresentInspe}
-                                                    onChange={(e) => setPeriodOfServiceBetweenPrevAndPresentInspe(e.target.value)}
+                                                    value={periodOfServiceBetweenPrevAndPresentInspeValue}
+                                                    onChange={periodOfServiceBetweenPrevAndPresentInspeValueHandler}
                                                 />
                                             </div>
                                             <div className="select-fields-one">
@@ -807,8 +993,8 @@ const BottomPlates = ({ id, loading }) => {
                                                     type="text"
                                                     className="select-fields input"
                                                     name="Installation_of_PRD"
-                                                    value={minThicknessMeasuredPresentInsp}
-                                                    onChange={(e) => setMinThicknessMeasuredPresentInsp(e.target.value)}
+                                                    value={minThicknessMeasuredPresentInspValue}
+                                                    onChange={minThicknessMeasuredPresentInspValueHandler}
                                                 />
                                             </div>
                                             <div className="select-fields-one">
@@ -818,21 +1004,34 @@ const BottomPlates = ({ id, loading }) => {
                                                     type="text"
                                                     className="select-fields input"
                                                     name="Installation_of_PRD"
-                                                    value={minAllowBottomPlaceThickness}
-                                                    onChange={(e) => setMinAllowBottomPlaceThickness(e.target.value)}
+                                                    value={minAllowBottomPlaceThicknessValue}
+                                                    onChange={minAllowBottomPlaceThicknessValueHandler}
                                                 />
                                             </div>
                                             <SelectField
+                                                fields={accelerationFactorForPitting}
+                                                labelValue="Acceleration Factor For Pitting"
+                                                value={accelerationFactorForPittingValue}
+                                                valueHandler={accelerationFactorForPittingValueHandler}
+                                            />
+                                            <SelectField
                                                 fields={ndtMethodUsed}
                                                 labelValue="Frequency Of Internal Inspection"
+                                                value={ndtMethodUsedValue}
+                                                valueHandler={ndtMethodUsedValueHandler}
+                                                
                                             />
                                             <SelectField
                                                 fields={freqOfInternalInsp}
                                                 labelValue="NDT Method Used"
+                                                value={freqOfInternalInspValue}
+                                                valueHandler={freqOfInternalInspValueHandler}
                                             />
                                             <SelectField
                                                 fields={typeOfInternecting}
-                                                labelValue="NDT Method Used"
+                                                labelValue="Type Of Interconnecting Bottom Plate Welds"
+                                                value={typeOfInternectingValue}
+                                                valueHandler={typeOfInternectingValueHandler}
                                             />
                                         </div>
                                     </div>
@@ -865,10 +1064,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input probability-factor"
+                                                    className="select-fields input probability-factor result-field"
                                                     name="probability_factor"
                                                     value={probabilityFactor}
-                                                    onChange={(e) => setProbabilityFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -880,10 +1079,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input probability-rating"
+                                                    className="select-fields input probability-rating result-field"
                                                     name="probability_rating"
                                                     value={probabilityRating}
-                                                    onChange={(e) => setProbabilityRating(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -895,10 +1094,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input economic-factor"
+                                                    className="select-fields input economic-factor result-field"
                                                     name="economic_aspects_consequence_factor"
                                                     value={economicAspectsConsequenceFactor}
-                                                    onChange={(e) => setEconomicAspectsConsequenceFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -910,10 +1109,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input economic-rating"
+                                                    className="select-fields input economic-rating result-field"
                                                     name="economic_aspects_consequence_rating"
                                                     value={economicAspectsConseqRating}
-                                                    onChange={(e) => setEconomicAspectsConseqRating(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -925,10 +1124,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input health-factor"
+                                                    className="select-fields input health-factor result-field"
                                                     name="health_and_safety_aspects_consequence_factor"
                                                     value={healthSafetyAspectsconseqFactor}
-                                                    onChange={(e) => setHealthSafetyAspectsconseqFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -940,10 +1139,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input health-rating"
+                                                    className="select-fields input health-rating result-field"
                                                     name="health_and_safety_aspects_consequence_rating"
                                                     value={healthSafetyAspectsConseqRating}
-                                                    onChange={(e) => setHealthSafetyAspectsConseqRating(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -955,10 +1154,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input environmental-factor"
+                                                    className="select-fields input environmental-factor result-field"
                                                     name="environmental_aspects_consequence_factor"
                                                     value={environAspectsConsequenceFactor}
-                                                    onChange={(e) => setEnvironAspectsConsequenceFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -970,10 +1169,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input environmental-rating"
+                                                    className="select-fields input environmental-rating result-field"
                                                     name="environmental_aspects_consequence_rating"
                                                     value={environAspectsConsequenceRating}
-                                                    onChange={(e) => setEnvironAspectsConsequenceRating(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -985,10 +1184,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input overall-factor"
+                                                    className="select-fields input overall-factor result-field"
                                                     name="overall_consequence_factor"
                                                     value={overallConsequenceFactor}
-                                                    onChange={(e) => setOverallConsequenceFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1000,10 +1199,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input overall-rating"
+                                                    className="select-fields input overall-rating result-field"
                                                     name="overall_consequence_rating"
                                                     value={overallConsequenceRating}
-                                                    onChange={(e) => setOverallConsequenceRating(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1015,10 +1214,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input risk-rating"
+                                                    className="select-fields input risk-rating result-field"
                                                     name="risk_rating"
                                                     value={riskRating}
-                                                    onChange={(e) => setRiskRating(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1035,10 +1234,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input corrosion-rate"
+                                                    className="select-fields input corrosion-rate result-field"
                                                     name="corrosion_rate"
                                                     value={corrosionRate}
-                                                    onChange={(e) => setCorrosionRate(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1050,10 +1249,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 
                                                 <input
                                                     type="text"
-                                                    className="select-fields input acceleration-factor-pitting"
+                                                    className="select-fields input acceleration-factor-pitting result-field"
                                                     name="acceleration_factor_for_pitting"
-                                                    value={accelerationFactorForPitting}
-                                                    onChange={(e) => setAccelerationFactorForPitting(e.target.value)}
+                                                    value={accelerationFactorForPittingResult}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1064,10 +1263,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Adjusted Corrosion Rate</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input adjusted-corrosion-rate"
+                                                    className="select-fields input adjusted-corrosion-rate result-field"
                                                     name="adjusted_corrosion_rate"
                                                     value={adjustedCorrosionRate}
-                                                    onChange={(e) => setAdjustedCorrosionRate(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1078,10 +1277,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Remaining Life</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input remaining-life"
+                                                    className="select-fields input remaining-life result-field"
                                                     name="remaining_life"
                                                     value={remainingLife}
-                                                    onChange={(e) => setRemainingLife(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1092,10 +1291,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Confidence Factor</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input confidence-factor"
+                                                    className="select-fields input confidence-factor result-field"
                                                     name="confidence_factor"
                                                     value={confidenceFactor}
-                                                    onChange={(e) => setConfidenceFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1106,10 +1305,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Confidence Factor Adjustement</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input confidence-factor-adjustement"
+                                                    className="select-fields input confidence-factor-adjustement result-field"
                                                     name="confidence_factor_adjustement"
                                                     value={confidenceFactorAdjustement}
-                                                    onChange={(e) => setConfidenceFactorAdjustement(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1120,10 +1319,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Ajusted Confidence Factor</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input ajusted-confidence-factor"
+                                                    className="select-fields input ajusted-confidence-factor result-field"
                                                     name="ajusted_confidence_factor"
                                                     value={ajustedConfidenceFactor}
-                                                    onChange={(e) => setAjustedConfidenceFactor(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1134,10 +1333,10 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Interval Before Next Required Inspection</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input before-next-inspection"
+                                                    className="select-fields input before-next-inspection result-field"
                                                     name="interval_before_next_required_inspection"
                                                     value={intervalBeforeNextRequiredInspection}
-                                                    onChange={(e) => setIntervalBeforeNextRequiredInspection(e.target.value)}
+                                                    onChange={handleResults}
                                                     disabled={true}
                                                     style={{
                                                         backgroundColor: "white"
@@ -1148,7 +1347,7 @@ const BottomPlates = ({ id, loading }) => {
                                                 <label htmlFor="">Next Inspection</label>
                                                 <input
                                                     type="text"
-                                                    className="select-fields input next-inspection"
+                                                    className="select-fields input next-inspection result-field"
                                                     name="next_inspection"
                                                     value={nextInspection}
                                                     onChange={(e) => setNextInspection(e.target.value)}

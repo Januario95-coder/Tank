@@ -7,6 +7,7 @@ import {
 import Tanker from './Tanker';
 import Projects from './Projects';
 import Logout from './Logout';
+import Testing from '../components/Testing';
 
 import Sidebar from './Sidebar';
 
@@ -23,7 +24,7 @@ const ReactRouterSetup = () => {
 					<Projects loading={false} />
 				</Route>
 				<Route path='/logout'>
-                    {/*<Logout />*/}
+                    {/*<Testing />*/}
 				</Route>
 			</Switch>
         </Router>

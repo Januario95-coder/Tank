@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'shell_plates.apps.ShellPlatesConfig',
     'projects.apps.ProjectsConfig',
     'selectfields.apps.SelectfieldsConfig',
+    'selectfields_shell.apps.SelectfieldsShellConfig',
     
     # Third-party
     'rest_framework',
@@ -53,7 +54,7 @@ ROOT_URLCONF = 'tanks.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR.joinpath('build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +77,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'dasjf5nt30tgfe',
+        # 'USER': 'iatchafwyankdk',
+        # 'PASSWORD': 'da82bb58b23282efaf65fca232dd9f4bff66cbe740c1034d4b0e1898b6e4565c',
+        # 'HOST': 'ec2-54-205-183-19.compute-1.amazonaws.com',
+        # 'PORT': '5432'
     }
 }
 
@@ -122,7 +130,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'https://rbui-tank.netlify.app'
 ]
 
 CSRF_COOKIE_SAMESITE = 'Lax'
@@ -132,3 +141,7 @@ SESSION_COOKIE_HTTPONLY = True
 
 CORS_EXPOSE_HEADERS = ['Content-Type']
 CORS_ALLOW_CREDENTIALS = True
+
+STATICFILES_DIRS = (
+    BASE_DIR.joinpath('build', 'static'),  # new
+)

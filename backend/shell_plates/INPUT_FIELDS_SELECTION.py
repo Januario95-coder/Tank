@@ -1,13 +1,13 @@
 
 IMPRESSED_COATING_APPLIED_TO_SHEEL_PLATES = [
-    ('Internal coating applied and quality is sound', 'Internal coating applied and quality is sound'),
-    ('Internal coating applied and quality is poor', 'Internal coating applied and quality is poor'),
-    ('Internal coating not existing', 'Internal coating not existing')
+    ('Internal coating applied and quality is sound - score=0', 'Internal coating applied and quality is sound'),
+    ('Internal coating applied and quality is poor - score=1', 'Internal coating applied and quality is poor'),
+    ('Internal coating not existing - score=2', 'Internal coating not existing')
 ]
 EXTERNAL_COATING_APPLIED_TO_SHELL_PLATES = [
-    ('External coating applied and quality is sound', 'External coating applied and quality is sound'),
-    ('External coating applied and quality is poor', 'External coating applied and quality is poor'),
-    ('External coating not existing', 'External coating not existing')
+    ('External coating applied and quality is sound - score=0', 'External coating applied and quality is sound'),
+    ('External coating applied and quality is poor - score=1', 'External coating applied and quality is poor'),
+    ('External coating not existing - score=2', 'External coating not existing')
 ]
 
 
@@ -16,32 +16,40 @@ EXTERNAL_COATING_APPLIED_TO_SHELL_PLATES = [
 DEGREE_SIGN = u'\N{DEGREE SIGN}'
 
 STORAGE_CONDITIONS = [
-    (f'Temperature of product < 40{DEGREE_SIGN}C', f'Temperature of product < 40{DEGREE_SIGN}C'),
-    (f'40{DEGREE_SIGN}C Temperature of product < 85{DEGREE_SIGN}C', f'40{DEGREE_SIGN}C Temperature of product < 85{DEGREE_SIGN}C'),
-    ('Temperature of product > 85{DEGREE_SIGN}C', f'Temperature of product > 85{DEGREE_SIGN}C')
+    (f'Temperature of product < 40{DEGREE_SIGN}C - score=0', f'Temperature of product < 40{DEGREE_SIGN}C'),
+    (f'40{DEGREE_SIGN}C Temperature of product < 85{DEGREE_SIGN}C - score=1', f'40{DEGREE_SIGN}C Temperature of product < 85{DEGREE_SIGN}C'),
+    ('Temperature of product > 85{DEGREE_SIGN}C - score=2', f'Temperature of product > 85{DEGREE_SIGN}C')
 ]
 HEATING_COILS_IN_TANK = [
-    ('No heating coil or no contact between heating coil and shell plates', 'No heating coil or no contact between heating coil and shell plates'),
-    ('Presence of heating coil in direct contact with shell plates', 'Presence of heating coil in direct contact with shell plates')
+    ('No heating coil or no contact between heating coil and shell plates - score=0', 'No heating coil or no contact between heating coil and shell plates'),
+    ('Presence of heating coil in direct contact with shell plates - score=1', 'Presence of heating coil in direct contact with shell plates')
 ]
 PRODUCT_CORROSIVITY = [
-    ('Product group 4', 'Product group 4'),
-    ('Product group 5', 'Product group 5'),
-    ('Product group 3', 'Product group 3'),
-    ('Product group 6', 'Product group 6'),
-    ('Product group 1', 'Product group 1')
+    ('Group 1/Risk H - score=2', 'Group 1/Risk H'),
+    ('Group 3/Risk M - score=1', 'Group 3/Risk M'),
+    ('Group 4/Risk L - score=0', 'Group 4/Risk L'),
+    ('Group 5/Risk L - score=0', 'Group 5/Risk L'),
+    ('Group 6/Risk M - score=1', 'Group 6/Risk M')
 ]
 VAPOUR_CORROSIVITY = [
-    ('Vapour group 4', 'Vapour group 4'),
-    ('Vapour group 5', 'Vapour group 5'),
-    ('Vapour group 3', 'Vapour group 3'),
-    ('Vapour group 6', 'Vapour group 6'),
-    ('Vapour group 1', 'Vapour group 1')
+    ('Group 1/Risk H - score=2', 'Group 1/Risk H'),
+    ('Group 3/Risk M - score=1', 'Group 3/Risk M'),
+    ('Group 4/Risk L - score=0', 'Group 4/Risk L'),
+    ('Group 5/Risk L - score=0', 'Group 5/Risk L'),
+    ('Group 6/Risk M - score=1', 'Group 6/Risk M')
 ]
+TANK_SHELL_HAS_BEEN_INSULATED = [
+    ('CUI is likely to occur - score=2', 'CUI is likely to occur'),
+    ('Tank shell is properly insulated and CUI is unlikely to occur - score=0', 'Tank shell is properly insulated and CUI is unlikely to occur'),
+    ('Tank shell is not insulated, - score=0', 'Tank shell is not insulated,')
+]
+
+
+
 CORROSION_UNDER_INSULATION_CUI = [
-    ('Tank shell is not insulated', 'Tank shell is not insulated'),
-    ('Tank shell is properly insulated and CUI is unlikely to occur', 'Tank shell is properly insulated and CUI is unlikely to occur'),
-    ('CUI is likely to occur', 'CUI is likely to occur')
+    ('Tank shell is not insulated - score=2', 'Tank shell is not insulated'),
+    ('Tank shell is properly insulated and CUI is unlikely to occur - score=0', 'Tank shell is properly insulated and CUI is unlikely to occur'),
+    ('CUI is likely to occur - score=0', 'CUI is likely to occur')
 ]
 
 

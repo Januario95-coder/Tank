@@ -25,6 +25,7 @@ from selectfields.serializers import (
     LocationOfTankFarmSerializer,
     EnvironmetalHazardToSoilAndWaterSerializer,
     VapourEmissionSerializer,
+    AccelerationFactorForPittingSerializer,
     NDTMethodUsedForThicknessMeasurementsSerializer,
     FrequencyOfInternalInspectionsSerializer,
     TypeOfInterconnectingBottomPlateWeldsSerializer,
@@ -64,10 +65,27 @@ class ProbabilityFactorDataSerializer(serializers.ModelSerializer):
         
 
 class ConsequenceFactorDataSerializer(serializers.ModelSerializer):
+    time_to_repair = TimeToRepairSerializer()
+    cost_of_repair = CostOfRepairSerializer()
+    probable_magnitude_of_product_loss = ProbableMagnitudeOfProductLossSerializer()
+    likelihood_of_injury_to_personnel = LikelihoodOfInjuryToPersonnelSerializer()
+    product_flammability_as_per_MCSP = ProductFlammabilityAsPerMCSPSerializer()
+    product_toxicity = ProductToxicitySerializer()
+    location_of_tank_farm = LocationOfTankFarmSerializer()
+    environmetal_hazard_to_soil_and_water_as_the_potential_to_cause = EnvironmetalHazardToSoilAndWaterSerializer()
+    vapour_emission = VapourEmissionSerializer()
+    
     class Meta:
         model = ConsequenceFactorData
-        fields = '__all__'
-        depth = 1
+        fields = ['id', 'time_to_repair', 
+                  'cost_of_repair', 
+                  'probable_magnitude_of_product_loss',
+                  'likelihood_of_injury_to_personnel',
+                  'product_flammability_as_per_MCSP',
+                  'product_toxicity', 'location_of_tank_farm',
+                  'environmetal_hazard_to_soil_and_water_as_the_potential_to_cause',
+                  'vapour_emission']
+        # depth = 1
         
     def to_representation(self, instance):
         data = super().to_representation(instance)
@@ -79,11 +97,30 @@ class ConsequenceFactorDataSerializer(serializers.ModelSerializer):
       
       
 class InspectionDataSerializer(serializers.ModelSerializer):
+    last_inspection = serializers.DateField()
+    minimum_thickness_measured_during_previous_inspection = serializers.CharField(max_length=100)
+    period_of_service_between_previous_inspection_and_this_inspection = serializers.CharField(max_length=100)
+    minimum_thickness_measured_during_present_inspection = serializers.CharField(max_length=100)
+    minimum_allowable_bottom_place_thickness = serializers.CharField(max_length=100)
+    acceleration_factor_for_pitting = AccelerationFactorForPittingSerializer()
+    NDT_method_used_for_thickness_measurements = NDTMethodUsedForThicknessMeasurementsSerializer()
+    frequency_of_internal_inspections_performed_during_service_life = FrequencyOfInternalInspectionsSerializer()
+    type_of_interconnecting_bottom_plate_welds_outside_of_annular_section = TypeOfInterconnectingBottomPlateWeldsSerializer()
+    
     class Meta:
         model = InspectionData
         fields = '__all__'
+        depth = 1
         
     def to_representation(self, instance):
         data = super().to_representation(instance)
         data['twenty_2_score'] = instance.twenty_2
         return data
+        
+        
+        
+        
+class ResultsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Results
+        fields = '__all__'

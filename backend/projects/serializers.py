@@ -7,7 +7,8 @@ from bottom_plates.models import AllModels
 from bottom_plates.api.serializers import (
     ProbabilityFactorDataSerializer,
     ConsequenceFactorDataSerializer,
-    InspectionDataSerializer
+    InspectionDataSerializer,
+    ResultsSerializer
 )
 
 
@@ -15,12 +16,14 @@ class AllModelsSerializer(serializers.ModelSerializer):
     probability_factor_data = ProbabilityFactorDataSerializer()
     consequence_factor_data = ConsequenceFactorDataSerializer()
     inspection_data = InspectionDataSerializer()
+    results = ResultsSerializer()
     
     class Meta:
         model = AllModels
         fields = ['id', 'probability_factor_data',
                   'consequence_factor_data',
-                  'inspection_data']
+                  'inspection_data',
+                  'results']
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -326,8 +326,6 @@ class InspectionData(models.Model):
         verbose_name = 'Inspection Data'
         verbose_name_plural = 'Inspection Data' 
         
-        
-        
 
 
 class Results(models.Model): 

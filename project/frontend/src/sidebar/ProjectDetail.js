@@ -67,7 +67,9 @@ const ProjectDetail = ({ id, loading }) => {
                         />
                     </Route>
                     <Route path="/shell">
-                        <ShellPlates />
+                        <ShellPlates 
+                            id={id}
+                        />
                     </Route>
                     <Route path="/roof">
                         <TankRoof />

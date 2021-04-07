@@ -30,10 +30,12 @@ from .models import (
 
 
 def formatName(name):
-    name = name.split('-') 
-    if len(name) > 2:
-        return ' - '.join(name[:2])
-    return name[0].strip()
+    return name.split('-')[0].strip()
+    # name = name.split('-') 
+    # if len(name) > 2:
+        # return '-'.join(name[:2])
+    # return name[0].strip()
+
     
 
 class NameFormatting:
